@@ -8,10 +8,10 @@ const mongoose = require('mongoose')
 const connection = mongoose.connection
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
 connection.on('connected', ()=>{
-    console.log('a successful connection msg goes here')"
+    console.log('Ready Player One')
 })
 connection.on('error', (err)=>{
-    console.log('failed to connect msg goes here: ' + err)"
+    console.log('failed to connect: ' + err)
 })
 
 var indexRouter = require('./routes/index');
