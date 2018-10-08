@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Home from './components/Home';
+import React, { Component } from 'react'
+import Home from './components/Home'
 
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
       <div>
         <Home />
       </div>
-    );
+    )
   }
 }
 
