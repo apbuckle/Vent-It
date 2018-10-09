@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { StyledLink } from './SharedComponents'
 
-export default class Login extends Component {
+export default class Category extends Component {
   state = {
     categories: [],
     newCategory: {
-      categoryTitle: ''
+      title: ''
     }
   }
 
@@ -33,9 +33,10 @@ export default class Login extends Component {
   render() {
     const categoriesList = this.state.categories.map((category, i) => {
       return (
-        <div>
-          <StyledLink to={`/categories/${category._id}`} key={i}>
-            Name: {category.categoryTitle}
+        <div  key={i}>
+           
+          <StyledLink to={`/categories/${category._id}`}>
+            + {category.title}
           </StyledLink>
         </div>
       )
@@ -48,8 +49,8 @@ export default class Login extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
-            name='categoryTitle'
-            value={this.state.newCategory.categoryTitle}
+            name='title'
+            value={this.state.newCategory.title}
             onChange={this.handleChange} />
           <input type='submit' value='Create New Category' />
         </form>
