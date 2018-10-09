@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
-import New from './components/New'
+import Category from './components/Category'
 
 
 class App extends Component {
@@ -10,11 +10,11 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path='/' component={Home}/>
-          <Route exact path='/new' component={New} />
+          <Route exact path='/category' component={Category} />
         </Switch>
       </Router>
     )
   }
 }
 
-export default App;
+export default App
