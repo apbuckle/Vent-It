@@ -15,7 +15,7 @@ export default class Home extends Component {
           <li><Link to=''>Relationships</Link></li>
           <li><Link to=''>Misc</Link></li>
           <li><Link to=''>Life</Link></li>
-          <li><Link to=''>Make a new category</Link></li>
+          <li><Link to='/new'>Make a new category</Link></li>
 
 
 
