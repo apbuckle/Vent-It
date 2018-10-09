@@ -33,8 +33,8 @@ app.get('/', (req,res) => {
 const categoryController = require('./routes/categoryController')
 const ventController = require('./routes/ventController')
 
-// app.use('/category', categoryController)
-// app.use('/category/:categoryId/vent', ventController)
+// app.use('/api/category', categoryController)
+// app.use('/api/category/:categoryId/vent', ventController)
 
 
 module.exports = app
