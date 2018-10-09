@@ -1,7 +1,6 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true})
-mongoose.Promise = global.Promise
+mongoose.connect(process.env.MONGODB_URI)
 const { Category, Vent } = require('./model') 
 
 

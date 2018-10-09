@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const connection = mongoose.connection
 mongoose.connect(
     process.env.MONGODB_URI, 
-    {useNewUrlParser: true}
+    { useNewUrlParser: true }
 )
 connection.on('connected', ()=>{
     console.log('Ready Player One')

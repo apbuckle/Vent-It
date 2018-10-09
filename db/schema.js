@@ -5,13 +5,13 @@ const VentSchema = new Schema({
     description: String
 })
  
-const CategoriesSchema = new Schema({
+const CategorySchema = new Schema({
     topic: String,
     description: String,
     vents: [VentSchema],
   })
 
 module.exports = {
-    CategoriesSchema,
+    CategorySchema,
     VentSchema
 }
