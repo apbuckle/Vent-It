@@ -5,16 +5,16 @@ const { Category, Vent } = require('./model')
 
 
 const potHoles = new Vent({
-    description: 'The roads are in such bad conditions that you can only hold you breath that you do not pop a tire each time out driving'
+    description: 'The roads are in such bad conditions'
 })
 
 
-const traffic = new Category({
-    title: 'traffic',
+const Traffic = new Category({
+    title: 'Traffic',
     vents: [potHoles]
 })
 
 Category.remove({})
-  .then(() => traffic.save())
+  .then(() => Traffic.save())
   .then(() => console.log('Successful Save'))
   .then(() => mongoose.connection.close())

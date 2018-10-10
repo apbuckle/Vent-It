@@ -34,7 +34,7 @@ const categoryController = require('./routes/categoryController')
 const ventController = require('./routes/ventController')
 
 app.use('/api/categories', categoryController)
-// app.use('/api/categories/:categoryId/vent', ventController)
+app.use('/api/categories/:categoryId/vent', ventController)
 
 
 module.exports = app
