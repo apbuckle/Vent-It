@@ -26,13 +26,13 @@ export default class Vent extends Component {
 
   handleNew = async () => {
     const categoryId = this.props.match.params.categoryId
-    await axios.post(`/api/categories/${categoryId}/vents`)
+    await axios.post(`/api/categories/${categoryId}/vent`)
     await this.getCategory()
   }
 
   handleDelete = async (ventId) => {
     const categoryId = this.props.match.params.categoryId
-    await axios.delete(`/api/categories/${categoryId}/vents/${ventId}`)
+    await axios.delete(`/api/categories/${categoryId}/vent/${ventId}`)
     await this.getCategory()
   }
 
@@ -45,7 +45,7 @@ export default class Vent extends Component {
   updateVent = async (i) => {
     const categoryId = this.props.match.params.categoryId
     const updatedVent = this.state.vents[i]
-    await axios.put(`/api/categories/${categoryId}/vents/${updatedVent._id}`, updatedVent)
+    await axios.put(`/api/categories/${categoryId}/vent/${updatedVent._id}`, updatedVent)
   }
 
   render() {
@@ -54,11 +54,11 @@ export default class Vent extends Component {
         <div key={i}>
           <div onClick={() => this.handleDelete(vent._id)}> X </div>
 
-          <input type='text' name='title' value={vent.title}
+          <input type='text' name='title' placeholder='title' value={vent.title}
             onChange={(event) => this.handleChange(event, i)}
             onBlur={() => this.updateVent(i)} />
 
-          <input type='text' name='description' value={vent.description}
+          <input type='text' name='description' placeholder='description' value={vent.description}
             onChange={(event) => this.handleChange(event, i)}
             onBlur={() => this.updateVent(i)} />
         </div>
@@ -67,7 +67,7 @@ export default class Vent extends Component {
 
     return (
       <div>
-        <h1> : {this.state.category.categoryName}</h1>
+        <h1> : {this.state.category.title}</h1>
         <div>
           <div onClick={this.handleNew}>New Vent</div>
         </div>
