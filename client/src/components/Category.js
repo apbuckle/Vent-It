@@ -1,6 +1,69 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { StyledLink } from './SharedComponents'
+// import { StyledLink } from './SharedComponents'
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #00BBAA;
+  
+`
+
+const StyledH = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+  font-size: 15vw;
+  text-shadow: .5vw .5vw 0 #d32f2f; 
+  font-weight: bold;
+`
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  text-align:center;
+  margin: 10px;
+  input {
+    height: 35px;
+    font-size: 3vw;
+  }
+  
+  `
+
+const StyledText = styled.div`
+  font-size: 7.5vw;
+  text-shadow: .2vw .2vw 0 #d32f2f; 
+  margin: 20px;
+
+`
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000000;
+`
+
+const StyledButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  line-height: 28px;
+  text-align:center;
+  font-size: 30px;
+  background-color: #00BBAA;
+  border: none;
+`
+
 
 export default class Category extends Component {
   state = {
@@ -33,28 +96,32 @@ export default class Category extends Component {
   render() {
     const categoriesList = this.state.categories.map((category, i) => {
       return (
-        <div  key={i}>
-           
+        <div key={i}>
+
           <StyledLink to={`/categories/${category._id}`}>
             + {category.title}
           </StyledLink>
         </div>
       )
-})
+    })
 
     return (
-      <div>
-        <h1>Category</h1>
-        {categoriesList}
-        <form onSubmit={this.handleSubmit}>
+      <StyledContainer>
+        <StyledH>
+          Category
+        </StyledH>
+        <StyledForm onSubmit={this.handleSubmit}>
           <input
-            type='text'
-            name='title'
+            type='text' name='title' placeholder='New Category'
             value={this.state.newCategory.title}
             onChange={this.handleChange} />
-          <input type='submit' value='Create New Category' />
-        </form>
-      </div>
+          <StyledButton type='submit'>+</StyledButton>
+        </StyledForm>
+
+        <StyledText>
+          {categoriesList}
+        </StyledText>
+      </StyledContainer>
     )
   }
 }

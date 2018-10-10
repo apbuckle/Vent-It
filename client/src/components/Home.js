@@ -13,7 +13,7 @@ const StyledContainer = styled.div`
   background-color: #00BBAA;
 `
 const StyledText = styled.div`
-  font-size: 15vw;
+  font-size: 25vw;
   text-shadow: .7vw .7vw 0 #d32f2f; 
   font-weight: bold;
 `
