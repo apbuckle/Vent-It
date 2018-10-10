@@ -5,6 +5,7 @@ const { Category, Vent } = require('./model')
 
 
 const potHoles = new Vent({
+    title: 'Potholes',
     description: 'The roads are in such bad conditions'
 })
 

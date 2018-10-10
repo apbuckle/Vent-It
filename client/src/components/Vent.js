@@ -13,7 +13,7 @@ export default class Vent extends Component {
 
   getCategory = async () => {
     const categoryId = this.props.match.params.categoryId
-    const response = await axios.get(`/categories/${categoryId}`)
+    const response = await axios.get(`/api/categories/${categoryId}`)
     this.setState({
       category: response.data,
       vents: response.data.vents.reverse()

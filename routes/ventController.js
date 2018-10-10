@@ -1,8 +1,9 @@
 const router = require('express').Router({ mergeParams: true })
 const { Category, Vent } = require('../db/model')
 
+//Create
 router.post('/', (req, res) => {
-  const newVent = new Vent()
+  const newVent = new Vent(req.body)
   Category.findById(req.params.categoryId)
     .then((category) => {
       category.vents.push(newVent)
@@ -13,7 +14,7 @@ router.post('/', (req, res) => {
     })
 })
 
-
+//Update
 router.put('/:id', (req, res) => {
   Category.findById(req.params.categoryId)
     .then(category => {
@@ -35,6 +36,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
+//Delete
 router.delete('/:id', (req, res) => {
     Category.findById(req.params.categoryId)
       .then(category => {

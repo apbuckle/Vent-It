@@ -1,6 +1,7 @@
 const Schema = require('mongoose').Schema
 
 const VentSchema = new Schema({
+    title: String,
     description: String
 })
  
