@@ -59,7 +59,9 @@ const StyledButton = styled.button`
   background-color: #00988b;
   border: none;
 `
+const StyledDelete = styled.div`
 
+`
 
 export default class Category extends Component {
   state = {
@@ -69,9 +71,21 @@ export default class Category extends Component {
     }
   }
 
-  componentDidMount = async () => {
+  // getCategory = async () => {
+  //   const categoryId = this.props.match.params.categoryId
+  //   const response = await axios.get(`/api/categories/${categoryId}`)
+  //   this.setState({
+  //     category: response.data,
+  //   })
+  // }
+
+  getCategory = async () => {
     const response = await axios.get('/api/categories')
     this.setState({ categories: response.data })
+  }  
+
+  componentDidMount = async () => {
+    this.getCategory()
   }
 
   handleChange = (event) => {
@@ -89,6 +103,12 @@ export default class Category extends Component {
     this.setState({ categories })
   }
 
+  handleDelete = async (categoryId) => {
+    await axios.delete(`/api/categories/${categoryId}`)
+    this.getCategory()
+    
+  }
+
   render() {
     const categoriesList = this.state.categories.map((category, i) => {
       return (
@@ -97,6 +117,8 @@ export default class Category extends Component {
           <StyledLink to={`/categories/${category._id}`}>
             + {category.title}
           </StyledLink>
+          <StyledDelete onClick={() => this.handleDelete(category._id)}> - </StyledDelete>
+          
         </div>
       )
     })
