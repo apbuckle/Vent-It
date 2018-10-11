@@ -33,31 +33,35 @@ const StyledBoard = styled.div`
 
 const StyledVent = styled.div`
   background-color: #9a0007;
-  max-width: 150px;
+  width: 50vw;
   padding: 15px;
   padding-top: 0px;
   margin: 15px;
-  pre {
+  border-radius: 5px;
+  /* pre {
     margin: 0;
     padding: 0;
     outline: 0;
     border: 0;
-  }
+  } */
   .expandingArea {
     position: relative;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
   textarea {
+    font-size: 25px;
     box-sizing: border-box;
     width: 100%;
     height: 100px;
+    background-color: #CFD8DC;
+    border-radius: 5px;
   }
 
 `
 const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 3vw;
-  color: Black;
+  color: black;
   `
 const StyledAdd = styled.div`
   display: flex;
@@ -66,6 +70,13 @@ const StyledAdd = styled.div`
   margin: 15px;
   font-size: 10vw;
   text-shadow: .2vw .2vw 0 #d32f2f;
+`
+const StyledBurn = styled.div`
+  margin: 2px;
+  text-align: center;
+  font-size: 3vw;
+  background-color: #ff6659;
+  border-radius: 5px;
 `
 
 
@@ -118,20 +129,25 @@ export default class Vent extends Component {
     const ventsList = this.state.vents.map((vent, i) => {
       return (
         <StyledVent key={i}>
-          {/* <StyledNav onClick={() => this.handleDelete(vent._id)}> - </StyledNav> */}
 
           {/* <input type='text' name='title' placeholder='title' value={vent.title}
             onChange={(event) => this.handleChange(event, i)}
             onBlur={() => this.updateVent(i)} /> */}
-          
-            <div class='expandingArea'>
-              <pre><span></span></pre>
-              <textarea></textarea>
+
+            <div>
+            <input type='text' name='description' placeholder='Message' value={vent.description}
+            onChange={(event) => this.handleChange(event, i)}
+            onBlur={() => this.updateVent(i)} /> 
             </div>
 
-          {/* <input type='text' name='description' placeholder='Message' value={vent.description}
-            onChange={(event) => this.handleChange(event, i)}
-            onBlur={() => this.updateVent(i)} /> */}
+
+
+            <div class='expandingArea'>
+              <pre><span></span></pre>
+              <textarea>
+              </textarea>
+            </div>
+            <StyledBurn onClick={() => this.handleDelete(vent._id)}> BURN </StyledBurn>
          
         </StyledVent>
       )
