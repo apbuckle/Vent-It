@@ -8,10 +8,9 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  height: 100%;
+  /* position: fixed; */
+  min-height: 100vh;
   width: 100%;
-  /* background-color: #00BBAA; */
   background-color: #00988b;
 `
 const StyledMenu = styled.div`
@@ -19,9 +18,9 @@ const StyledMenu = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content:space-evenly;
-  padding: 5px;
   margin: 20px;
   width: 70%;
+
 `
 
 const StyledLink = styled(Link)`
@@ -32,10 +31,6 @@ const StyledLink = styled(Link)`
   transform: rotate(135deg);
   margin: 20px;
   box-shadow: 3px 3px 0 black;
-  /* text-decoration: none;
-  font-size: 6vw;
-  color: black;
-  margin: 20px; */
   `
 const StyledH = styled.div`
   display: flex;
@@ -47,6 +42,7 @@ const StyledH = styled.div`
   text-shadow: .4vw .4vw 0 #d32f2f; 
   font-weight: bold;
 `
+
 const StyledBoard = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -59,25 +55,18 @@ const StyledVent = styled.div`
   background-color: #9a0007;
   width: 50vw;
   padding: 15px;
-  padding-top: 0px;
-  margin: 20px;
+  margin: 15px;
   border-radius: 5px;
   box-shadow: 1.5vw 1.5vw 0 black;
-  /* pre {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    border: 0;
-  } */
-  .expandingArea {
+  #expandingArea {
     position: relative;
-    /* border: 1px solid black; */
+    border: 1px solid black;
   }
   textarea {
     font-size: 25px;
     box-sizing: border-box;
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: #CFD8DC;
     border-radius: 5px;
   }
@@ -87,10 +76,12 @@ const StyledAdd = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px;
+  margin: 5px;
   font-size: 11.5vw;
-  color: #d32f2f
+  color: #d32f2f;
   text-shadow: .3vw .3vw 0 black;
+  line-height: 75px;
+  
 `
 const StyledBurn = styled.div`
   margin: 2px;
@@ -149,6 +140,7 @@ export default class Vent extends Component {
   render() {
     const ventsList = this.state.vents.map((vent, i) => {
       return (
+     
         <StyledVent key={i}>
 
           {/* <input type='text' name='title' placeholder='title' value={vent.title}
@@ -156,21 +148,15 @@ export default class Vent extends Component {
             onBlur={() => this.updateVent(i)} /> */}
 
             <div>
-            <input type='text' name='description' placeholder='Message' value={vent.description}
+            <textarea id='expandingArea' name='description' placeholder='Message' value={vent.description}
             onChange={(event) => this.handleChange(event, i)}
             onBlur={() => this.updateVent(i)} /> 
             </div>
-
-
-
-            <div class='expandingArea'>
-              <pre><span></span></pre>
-              <textarea>
-              </textarea>
-            </div>
+          
             <StyledBurn onClick={() => this.handleDelete(vent._id)}> BURN </StyledBurn>
          
         </StyledVent>
+   
       )
     })
 
@@ -182,7 +168,9 @@ export default class Vent extends Component {
           <StyledAdd onClick={this.handleNew}>+</StyledAdd>
         
         <StyledBoard>
+          
           {ventsList}
+         
         </StyledBoard>
       </StyledContainer>
     )
