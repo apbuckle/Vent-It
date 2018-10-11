@@ -13,8 +13,7 @@ const StyledContainer = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: #00BBAA;
-  
+  background-color: #00988b;
 `
 
 const StyledH = styled.div`
@@ -23,7 +22,7 @@ const StyledH = styled.div`
   align-items: center;
   justify-content: center;
   margin: 25px;
-  font-size: 15vw;
+  font-size: 13vw;
   text-shadow: .5vw .5vw 0 #d32f2f; 
   font-weight: bold;
 `
@@ -36,16 +35,13 @@ const StyledForm = styled.form`
   margin: 10px;
   input {
     height: 35px;
-    font-size: 3vw;
-  }
-  
-  `
-
+    font-size: 2vw;
+  } 
+ `
 const StyledText = styled.div`
   font-size: 7.5vw;
   text-shadow: .2vw .2vw 0 #d32f2f; 
   margin: 20px;
-
 `
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -60,7 +56,7 @@ const StyledButton = styled.button`
   line-height: 28px;
   text-align:center;
   font-size: 30px;
-  background-color: #00BBAA;
+  background-color: #00988b;
   border: none;
 `
 
@@ -122,6 +118,7 @@ export default class Category extends Component {
           {categoriesList}
         </StyledText>
       </StyledContainer>
+      
     )
   }
 }

@@ -11,14 +11,38 @@ const StyledContainer = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: #00BBAA;
+  /* background-color: #00BBAA; */
+  background-color: #00988b;
 `
+const StyledMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+  padding: 5px;
+  margin: 20px;
+  width: 70%;
+`
+
+const StyledLink = styled(Link)`
+  border: solid #d32f2f;
+  border-width: 0 15px 15px 0;
+  display: inline-block;
+  padding: 20px;
+  transform: rotate(135deg);
+  margin: 20px;
+  box-shadow: 3px 3px 0 black;
+  /* text-decoration: none;
+  font-size: 6vw;
+  color: black;
+  margin: 20px; */
+  `
 const StyledH = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 25px;
+  margin: 20px;
   font-size: 12vw;
   text-shadow: .4vw .4vw 0 #d32f2f; 
   font-weight: bold;
@@ -36,8 +60,9 @@ const StyledVent = styled.div`
   width: 50vw;
   padding: 15px;
   padding-top: 0px;
-  margin: 15px;
+  margin: 20px;
   border-radius: 5px;
+  box-shadow: 1.5vw 1.5vw 0 black;
   /* pre {
     margin: 0;
     padding: 0;
@@ -56,20 +81,16 @@ const StyledVent = styled.div`
     background-color: #CFD8DC;
     border-radius: 5px;
   }
-
 `
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  font-size: 3vw;
-  color: black;
-  `
+
 const StyledAdd = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 15px;
-  font-size: 10vw;
-  text-shadow: .2vw .2vw 0 #d32f2f;
+  font-size: 11.5vw;
+  color: #d32f2f
+  text-shadow: .3vw .3vw 0 black;
 `
 const StyledBurn = styled.div`
   margin: 2px;
@@ -155,14 +176,14 @@ export default class Vent extends Component {
 
     return (
       <StyledContainer>
-        <StyledH> : {this.state.category.title}</StyledH>
-        <div>
+        <StyledMenu>
+        <StyledLink to='/category'>  </StyledLink> <StyledH>  {this.state.category.title} </StyledH>
+        </StyledMenu>
           <StyledAdd onClick={this.handleNew}>+</StyledAdd>
-        </div>
+        
         <StyledBoard>
           {ventsList}
         </StyledBoard>
-        <StyledLink to='/category'> Back </StyledLink>
       </StyledContainer>
     )
   }

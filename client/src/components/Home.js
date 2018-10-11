@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: #00BBAA;
+  background-color: #00988b;
 `
 const StyledText = styled.div`
   font-size: 25vw;
