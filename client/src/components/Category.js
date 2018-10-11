@@ -39,7 +39,7 @@ const StyledForm = styled.form`
   } 
  `
 const StyledText = styled.div`
-  font-size: 7.5vw;
+  font-size: 6.5vw;
   text-shadow: .2vw .2vw 0 #d32f2f; 
   margin: 20px;
 `
@@ -60,8 +60,17 @@ const StyledButton = styled.button`
   border: none;
 `
 const StyledDelete = styled.div`
-
+  margin: 5px;
+  font-size: 4vw;
 `
+const StyledMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
+  margin: 20px;
+  width: 50vw;
+  `
 
 export default class Category extends Component {
   state = {
@@ -71,21 +80,13 @@ export default class Category extends Component {
     }
   }
 
-  // getCategory = async () => {
-  //   const categoryId = this.props.match.params.categoryId
-  //   const response = await axios.get(`/api/categories/${categoryId}`)
-  //   this.setState({
-  //     category: response.data,
-  //   })
-  // }
-
-  getCategory = async () => {
+  getCategoryComponent = async () => {
     const response = await axios.get('/api/categories')
     this.setState({ categories: response.data })
   }  
 
   componentDidMount = async () => {
-    this.getCategory()
+    this.getCategoryComponent()
   }
 
   handleChange = (event) => {
@@ -105,20 +106,16 @@ export default class Category extends Component {
 
   handleDelete = async (categoryId) => {
     await axios.delete(`/api/categories/${categoryId}`)
-    this.getCategory()
-    
+    this.getCategoryComponent() 
   }
 
   render() {
     const categoriesList = this.state.categories.map((category, i) => {
       return (
         <div key={i}>
-
-          <StyledLink to={`/categories/${category._id}`}>
-            + {category.title}
-          </StyledLink>
-          <StyledDelete onClick={() => this.handleDelete(category._id)}> - </StyledDelete>
-          
+          <StyledMenu>
+          <StyledLink to={`/categories/${category._id}`}>{category.title}</StyledLink> <StyledDelete onClick={() => this.handleDelete(category._id)}> x </StyledDelete>
+          </StyledMenu>
         </div>
       )
     })
