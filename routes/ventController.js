@@ -38,14 +38,14 @@ router.put('/:id', (req, res) => {
 
 //Delete
 router.delete('/:id', (req, res) => {
-    Category.findById(req.params.categoryId)
-      .then(category => {
-        return category.update({ $pull: { vents: { _id: req.params.id } } })
-      })
-      .then(category => {
-        res.send(category)
-      })
-  })
-  
+  Category.findById(req.params.categoryId)
+    .then(category => {
+      return category.update({ $pull: { vents: { _id: req.params.id } } })
+    })
+    .then(category => {
+      res.send(category)
+    })
+})
+
 
 module.exports = router

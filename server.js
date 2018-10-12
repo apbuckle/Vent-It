@@ -7,14 +7,14 @@ const mongoose = require('mongoose')
 
 const connection = mongoose.connection
 mongoose.connect(
-    process.env.MONGODB_URI, 
+    process.env.MONGODB_URI,
     { useNewUrlParser: true }
 )
-connection.on('connected', ()=>{
+connection.on('connected', () => {
     console.log('Ready Player One')
 })
 
-connection.on('error', (err)=>{
+connection.on('error', (err) => {
     console.log('failed to connect: ' + err)
 })
 
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(`${__dirname}/client/build/`))
 
-app.get('/', (req,res) => {
+app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/client/build/index.html`)
 })
 
