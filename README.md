@@ -26,7 +26,7 @@ Technology and Libraries Used
     Posed
     Material.io
 
-
 Future Goals:
 
     Part of the theraputic process is writing a note but then setting it a flame.  I want to devlope animations with React that will display sometype of burning effect of the text field when user clicks the burn button.
+
