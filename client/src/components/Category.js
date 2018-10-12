@@ -23,10 +23,11 @@ const StyledH = styled.div`
   align-items: center;
   justify-content: center;
   margin: 25px;
-  font-size: 14vw;
+  font-size: 15vw;
   text-shadow: .5vw .5vw 0 #d32f2f; 
   font-weight: bold;
 `
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: row;
@@ -37,14 +38,13 @@ const StyledForm = styled.form`
   input {
     height: 5vh;
     width: 25vw;
-    font-size: 2vw;
+    font-size: 3.25vw;
   } 
  `
 
-
 const StyledText = styled.div`
-  font-size: 6.5vw;
-  text-shadow: .2vw .2vw 0 #d32f2f; 
+  font-size: 10vw;
+  text-shadow: .4vw .4vw 0 #d32f2f; 
   margin: 20px;
 `
 const StyledLink = styled(Link)`
@@ -59,7 +59,7 @@ const StyledButton = styled.button`
   margin: 2px;
   line-height: 28px;
   text-align:center;
-  font-size: 4vw;
+  font-size: 5vw;
   font-weight: bold;
   background-color: #00988b;
   border: none;

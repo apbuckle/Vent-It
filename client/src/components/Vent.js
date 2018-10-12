@@ -27,12 +27,12 @@ const StyledMenu = styled.div`
 
 const StyledLink = styled(Link)`
   border: solid #d32f2f;
-  border-width: 0 15px 15px 0;
+  border-width: 0 2vw 2vw 0;
   display: inline-block;
-  padding: 20px;
+  padding: 2vw;
   transform: rotate(135deg);
   margin: 20px;
-  box-shadow: 3px 3px 0 black;
+  box-shadow: .5vw .5vw 0 black;
   `
 const StyledH = styled.div`
   display: flex;
@@ -40,8 +40,8 @@ const StyledH = styled.div`
   align-items: center;
   justify-content: center;
   margin: 20px;
-  font-size: 12vw;
-  text-shadow: .4vw .4vw 0 #d32f2f; 
+  font-size: 15vw;
+  text-shadow: .5vw .5vw 0 #d32f2f; 
   font-weight: bold;
 `
 
@@ -82,7 +82,7 @@ const StyledAdd = styled.div`
   font-size: 11.5vw;
   color: #d32f2f;
   text-shadow: .3vw .3vw 0 black;
-  line-height: 75px;
+  /* line-height: 75px; */
   cursor: pointer;  
 `
 const StyledBurn = styled.div`
